@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Logos with Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Coming Soon Text with advanced zoom animation */
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 255, 0.7), 0 0 10px rgba(0, 255, 255, 0.5);
+            z-index: 10;
+            animation: zoomInOut 4s ease-in-out infinite, colorShift 4s ease-in-out infinite;
+        }
+
+        /* Zoom In and Zoom Out Effect */
+        @keyframes zoomInOut {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Color shifting animation */
+        @keyframes colorShift {
+            0% {
+                color: #ff3366; /* red-pink */
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.7), 0 0 10px rgba(255, 0, 255, 0.5);
+            }
+            25% {
+                color: #33ccff; /* blue */
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.7), 0 0 10px rgba(0, 255, 255, 0.5);
+            }
+            50% {
+                color: #33ff99; /* green */
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.7), 0 0 10px rgba(0, 255, 0, 0.5);
+            }
+            75% {
+                color: #ffcc00; /* yellow */
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 0, 0.7), 0 0 10px rgba(255, 255, 0, 0.5);
+            }
+            100% {
+                color: #ff3366;
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.7), 0 0 10px rgba(255, 0, 255, 0.5);
+            }
+        }
+
+        /* Logo Falling Animation */
+        .logo {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.ibb.co/X7VKCPT/images-4.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: fall 5s linear infinite;
+        }
+
+        /* Falling Animation */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Random Placement and Speed */
+        .logo:nth-child(1) {
+            left: 10%;
+            animation-duration: 4s;
+        }
+        .logo:nth-child(2) {
+            left: 30%;
+            animation-duration: 6s;
+            animation-delay: 1s;
+        }
+        .logo:nth-child(3) {
+            left: 50%;
+            animation-duration: 5s;
+            animation-delay: 2s;
+        }
+        .logo:nth-child(4) {
+            left: 70%;
+            animation-duration: 7s;
+            animation-delay: 3s;
+        }
+        .logo:nth-child(5) {
+            left: 90%;
+            animation-duration: 4s;
+            animation-delay: 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Coming Soon Text -->
+        <h1>Coming Soon</h1>
+
+        <!-- Falling Logos -->
+        <div class="logo"></div>
+        <div class="logo"></div>
+        <div class="logo"></div>
+        <div class="logo"></div>
+        <div class="logo"></div>
+    </div>
+</body>
+</html>
